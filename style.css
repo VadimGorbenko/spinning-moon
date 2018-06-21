@@ -16,31 +16,101 @@ body{
 	-webkit-background-size: cover;
 	background-size: cover;
 	position: relative;
+	overflow: hidden;
+}
+
+.earth-group{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 15vw;
+	height: 15vw;
+	transform:translate(-50%,-50%);
+}
+
+.earth-group__earth{
+	position: absolute;
+	left: 0;
+	top:0;
+	width: 15vw;
+	height: 15vw;
+	background-color: blue;
+	background-image: url("earth-mapHD.jpg");
+	animation-duration: 5s;
+	z-index: 10;
+	box-shadow: 0 0 15px 1px black inset;
+}
+
+.earth-group__moon{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 5vw;
+	height: 5vw;
+	transform: translate(-100%,100%);
+	background-color: gray;
+	background-image: url("moon-mapHD.jpg");
+	animation: spinArroundEarth 5s linear infinite;
+	z-index: 1;
 }
 
 .sun{
 	position: absolute;
+	right: -15vw;
+	top: 50%;
 	width: 30vw;
 	height: 30vw;
+	transform: translateY(-50%);
 	background-color: orange;
 	background-image: url('sun-mapHD.jpg');
+	animation-duration: 125s;
 }
+
 
 .space-object{
-	border-radius: 50%
-}
-
-.object-bg-animation{
+	border-radius: 50%;
 	background-repeat: repeat-x;
 	background-position: 0 0;
 	-webkit-background-size: auto 100%;
 	background-size: auto 100%;
-	animation: object-bg 5s linear;
+}
+
+.object-bg-animation{
+	animation-name:object-bg;
+	animation-timing-function: linear;
 	animation-iteration-count: infinite;
 }
 
 @keyframes object-bg {
 	to {
+		background-position:200% 0;
+	}
+}
+
+@keyframes spinArroundEarth{
+	25%{
+		transform: translate(-50%,50%) scale(0.5);
+	}
+	49%{
+		z-index: 1;
+	}
+	50%{
+		z-index: 10;
+		bottom: 100%;
+		left: 100%;
+		transform: translate(0,0) scale(1);
+	}
+	75%{
+		transform: translate(-50%,50%) scale(1.5);	
+	}
+	99%{
+		z-index: 10;
+	}
+	100%{
+		bottom: 0;
+		left: 0;
+		transform: translate(-100%,100%);
+		z-index: 1;
 		background-position:200% 0;
 	}
 }
