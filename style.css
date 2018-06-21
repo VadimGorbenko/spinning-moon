@@ -1,0 +1,46 @@
+html,body{
+	height: 100%;
+}
+
+body{
+	margin: 0;
+}
+
+.space{
+	width: 100vw;
+	height: 100vh;
+	background-color: black;
+	background-image: url("space-BG.jpg");
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	background-size: cover;
+	position: relative;
+}
+
+.sun{
+	position: absolute;
+	width: 30vw;
+	height: 30vw;
+	background-color: orange;
+	background-image: url('sun-mapHD.jpg');
+}
+
+.space-object{
+	border-radius: 50%
+}
+
+.object-bg-animation{
+	background-repeat: repeat-x;
+	background-position: 0 0;
+	-webkit-background-size: auto 100%;
+	background-size: auto 100%;
+	animation: object-bg 5s linear;
+	animation-iteration-count: infinite;
+}
+
+@keyframes object-bg {
+	to {
+		background-position:200% 0;
+	}
+}
